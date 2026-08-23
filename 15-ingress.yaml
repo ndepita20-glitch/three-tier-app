@@ -11,6 +11,13 @@ spec:
   - host: pn-mankon.com
     http:
       paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: frontend-v1-service
+            port:
+              number: 80
       - path: /graduation-date
         pathType: Prefix
         backend:
@@ -23,11 +30,25 @@ spec:
         backend:
           service:
             name: frontend-v2-service
+            port:
+              number: 80
+      - path: /phpmyadmin
+        pathType: Prefix
+        backend:
+          service:
+            name: phpmyadmin-service
             port:
               number: 80
   - host: www.pn-mankon.com
     http:
       paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: frontend-v1-service
+            port:
+              number: 80
       - path: /graduation-date
         pathType: Prefix
         backend:
@@ -40,5 +61,12 @@ spec:
         backend:
           service:
             name: frontend-v2-service
+            port:
+              number: 80
+      - path: /phpmyadmin
+        pathType: Prefix
+        backend:
+          service:
+            name: phpmyadmin-service
             port:
               number: 80

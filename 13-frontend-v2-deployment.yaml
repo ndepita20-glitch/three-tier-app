@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-v2-deployment
+  namespace: three-tier-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend-v2
+  template:
+    metadata:
+      labels:
+        app: frontend-v2
+    spec:
+      containers:
+      - name: frontend-v2
+        image: hashicorp/http-echo:latest
+        args:
+          - "-text=I love my kids, that is why i work hard every fucken day (New Feature)!"
+        ports:
+        - containerPort: 5678

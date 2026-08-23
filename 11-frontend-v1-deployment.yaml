@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-v1-deployment
+  namespace: three-tier-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend-v1
+  template:
+    metadata:
+      labels:
+        app: frontend-v1
+    spec:
+      containers:
+      - name: frontend-v1
+        image: hashicorp/http-echo:latest
+        args:
+          - "-text=I will graduate on September 1st, 2026, at Fort Lee Army Base!"
+        ports:
+        - containerPort: 5678

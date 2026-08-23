@@ -10,14 +10,14 @@ spec:
   rules:
   - http:
       paths:
-      - path: /v1
+      - path: /graduation-date
         pathType: Prefix
         backend:
           service:
             name: frontend-v1-service
             port:
               number: 80
-      - path: /v2
+      - path: /my-kids
         pathType: Prefix
         backend:
           service:

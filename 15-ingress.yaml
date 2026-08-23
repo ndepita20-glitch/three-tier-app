@@ -3,8 +3,6 @@ kind: Ingress
 metadata:
   name: app-ingress
   namespace: three-tier-app
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   ingressClassName: nginx
   rules:
@@ -32,13 +30,6 @@ spec:
             name: frontend-v2-service
             port:
               number: 80
-      - path: /phpmyadmin
-        pathType: Prefix
-        backend:
-          service:
-            name: phpmyadmin-service
-            port:
-              number: 80
   - host: www.pn-mankon.com
     http:
       paths:
@@ -63,7 +54,10 @@ spec:
             name: frontend-v2-service
             port:
               number: 80
-      - path: /phpmyadmin
+  - host: db.pn-mankon.com
+    http:
+      paths:
+      - path: /
         pathType: Prefix
         backend:
           service:

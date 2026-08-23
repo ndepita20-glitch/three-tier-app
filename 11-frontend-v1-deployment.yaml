@@ -17,6 +17,6 @@ spec:
       - name: frontend-v1
         image: hashicorp/http-echo:latest
         args:
-          - "-text=I will graduate on September 1st, 2026, at Fort Lee Army Base!"
+          - "-text=I will graduate on September 1st, 2026, at Fort Lee Army Base. thanks to all my fucken friends!"
         ports:
         - containerPort: 5678

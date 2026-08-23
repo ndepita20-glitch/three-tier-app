@@ -12,12 +12,14 @@ spec:
     metadata:
       labels:
         app: frontend-v1
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "5678"
     spec:
       containers:
       - name: frontend-v1
         image: hashicorp/http-echo:latest
         args:
-          - "-text=I will graduate on September 1st, 2026, at 
-        fort Lee Army Base. thanks to all my fucken friendss!"
+          - "-text=I will graduate on September 1st, 2026, at Fort Lee Army Base. thanks to all my friends!"
         ports:
         - containerPort: 5678

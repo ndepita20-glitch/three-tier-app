@@ -12,11 +12,14 @@ spec:
     metadata:
       labels:
         app: frontend-v2
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "5678"
     spec:
       containers:
       - name: frontend-v2
         image: hashicorp/http-echo:latest
         args:
-          - "-text=I love my kids, that is why i work hard every fucken day (New Feature)!"
+          - "-text=I love my kids, that is why i work hard every day (New Feature)!"
         ports:
         - containerPort: 5678

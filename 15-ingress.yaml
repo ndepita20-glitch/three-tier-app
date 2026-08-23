@@ -8,7 +8,25 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - http:
+  - host: pn-mankon.com
+    http:
+      paths:
+      - path: /graduation-date
+        pathType: Prefix
+        backend:
+          service:
+            name: frontend-v1-service
+            port:
+              number: 80
+      - path: /my-kids
+        pathType: Prefix
+        backend:
+          service:
+            name: frontend-v2-service
+            port:
+              number: 80
+  - host: www.pn-mankon.com
+    http:
       paths:
       - path: /graduation-date
         pathType: Prefix

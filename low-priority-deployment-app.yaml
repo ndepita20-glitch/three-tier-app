@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: low-priority-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: low-app
+  template:
+    metadata:
+      labels:
+        app: low-app
+    spec:
+      priorityClassName: low-priority-class
+      containers:
+      - name: nginx-low
+        image: nginx:latest
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            memory: "500Mi"
+            cpu: "500m"
